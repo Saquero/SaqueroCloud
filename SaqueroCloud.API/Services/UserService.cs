@@ -14,6 +14,7 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
+// TODO: añadir paginación (skip/take) si el número de usuarios crece
     public async Task<IEnumerable<UserDto>> GetAllUsersAsync()
     {
         var users = await _userRepository.GetAllAsync();
