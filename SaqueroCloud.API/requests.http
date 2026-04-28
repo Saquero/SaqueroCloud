@@ -2,6 +2,7 @@
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJTYXF1ZXJvQHBydWViYXMuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlNhcXVlcm8gQWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc3NzM2NjI4MSwiaXNzIjoiU2FxdWVyb0Nsb3VkLkFQSSIsImF1ZCI6IlNhcXVlcm9DbG91ZC5DbGllbnQifQ.i6HHfWGxuMTwXvXnwGyuxCIaFYsEXhJToNAeZLrP7Rk
 
 ### Login admin
+# @name login
 POST {{baseUrl}}/api/Auth/login
 Content-Type: application/json
 
@@ -12,7 +13,7 @@ Content-Type: application/json
 
 ### Get users paginated
 GET {{baseUrl}}/api/Users?page=1&pageSize=10
-Authorization: Bearer {{token}}
+Authorization: Bearer {{login.response.body.token}}
 
 ### Get subscription plans
 GET {{baseUrl}}/api/subscription-plans
