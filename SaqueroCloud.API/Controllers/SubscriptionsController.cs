@@ -24,9 +24,9 @@ public class SubscriptionsController : ControllerBase
     [HttpGet("active")]
     [Authorize(Roles = "Admin")]
     [ProducesResponseType(typeof(IEnumerable<UserSubscriptionDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetActive()
+    public async Task<IActionResult> GetActive([FromQuery] int? planId = null)
     {
-        var subscriptions = await _subscriptionService.GetActiveSubscriptionsAsync();
+        var subscriptions = await _subscriptionService.GetActiveSubscriptionsAsync(planId);
         return Ok(subscriptions);
     }
 
@@ -91,4 +91,5 @@ public class SubscriptionsController : ControllerBase
         return NoContent();
     }
 }
+
 

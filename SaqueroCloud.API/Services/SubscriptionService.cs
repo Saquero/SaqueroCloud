@@ -99,9 +99,13 @@ public class SubscriptionService : ISubscriptionService
         };
     }
 
-    public async Task<IEnumerable<UserSubscriptionDto>> GetActiveSubscriptionsAsync()
+    public async Task<IEnumerable<UserSubscriptionDto>> GetActiveSubscriptionsAsync(int? planId = null)
     {
         var subscriptions = await _subscriptionRepository.GetAllActiveAsync();
+
+        if (planId.HasValue)
+            subscriptions = subscriptions.Where(s => s.PlanId == planId.Value);
+
         return subscriptions.Select(MapSubscriptionToDto);
     }
 
@@ -157,4 +161,5 @@ public class SubscriptionService : ISubscriptionService
         IsActive = sub.IsActive
     };
 }
+
 
