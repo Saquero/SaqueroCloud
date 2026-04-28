@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SaqueroCloud.API.Models.DTOs;
 using SaqueroCloud.API.Services.Interfaces;
@@ -30,6 +30,20 @@ public class SubscriptionsController : ControllerBase
         return Ok(subscriptions);
     }
 
+    /// <summary>
+    /// Obtiene suscripciones activas que caducan pronto
+    /// </summary>
+    [HttpGet("expiring-soon")]
+    [Authorize(Roles = "Admin")]
+    [ProducesResponseType(typeof(IEnumerable<UserSubscriptionDto>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetExpiringSoon([FromQuery] int days = 7)
+    {
+        if (days <= 0)
+            return BadRequest(new { message = "El numero de dias debe ser mayor que cero." });
+
+        var subscriptions = await _subscriptionService.GetExpiringSoonAsync(days);
+        return Ok(subscriptions);
+    }
     /// <summary>
     /// Obtiene suscripciones de un usuario
     /// </summary>
@@ -77,3 +91,4 @@ public class SubscriptionsController : ControllerBase
         return NoContent();
     }
 }
+

@@ -24,9 +24,12 @@ public class UsersController : ControllerBase
     [HttpGet]
     [Authorize(Roles = "Admin")]
     [ProducesResponseType(typeof(IEnumerable<UserDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
-        var users = await _userService.GetAllUsersAsync();
+        if (page <= 0 || pageSize <= 0)
+            return BadRequest(new { message = "page y pageSize deben ser mayores que cero" });
+
+        var users = await _userService.GetAllUsersAsync(page, pageSize);
         return Ok(users);
     }
 
@@ -80,4 +83,6 @@ public class UsersController : ControllerBase
         return NoContent();
     }
 }
+
+
 

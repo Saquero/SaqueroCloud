@@ -43,8 +43,8 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<User>().HasData(new User
         {
             Id = 1,
-            Name = "Manu Admin",
-            Email = "admin@saquerocloud.com",
+            Name = "Saquero Admin",
+            Email = "Saquero@pruebas.com",
             PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin1234!"),
             Role = "Admin",
             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc),

@@ -11,7 +11,7 @@ using SaqueroCloud.API.Data;
 namespace SaqueroCloud.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260427225801_InitialCreate")]
+    [Migration("20260428001435_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -125,10 +125,10 @@ namespace SaqueroCloud.API.Migrations
                         {
                             Id = 1,
                             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Email = "admin@saquerocloud.com",
+                            Email = "Saquero@pruebas.com",
                             IsActive = true,
-                            Name = "Admin",
-                            PasswordHash = "$2a$11$kOUT67vXqUa8qYCtR8diYOHLijgj1Jq/WThxNrpQIyN2Wm9YdoQYW",
+                            Name = "Saquero Admin",
+                            PasswordHash = "$2a$11$4aGGpN3WNuN3liw3j0UKNukLnu3X6ANRVZFctfiCYZDKd.qDG9IrK",
                             Role = "Admin"
                         });
                 });

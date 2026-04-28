@@ -1,4 +1,4 @@
-﻿using SaqueroCloud.API.Models.DTOs;
+using SaqueroCloud.API.Models.DTOs;
 using SaqueroCloud.API.Models.Entities;
 using SaqueroCloud.API.Repositories.Interfaces;
 using SaqueroCloud.API.Services.Interfaces;
@@ -14,11 +14,27 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-// TODO: añadir paginación (skip/take) si el número de usuarios crece
-    public async Task<IEnumerable<UserDto>> GetAllUsersAsync()
+// TODO: mejorar paginacion para que se haga desde base de datos si crece el numero de usuarios
+    public async Task<PagedResultDto<UserDto>> GetAllUsersAsync(int page, int pageSize)
     {
-        var users = await _userRepository.GetAllAsync();
-        return users.Select(MapToDto);
+        var users = (await _userRepository.GetAllAsync()).Select(MapToDto).ToList();
+
+        var totalItems = users.Count;
+        var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+        var items = users
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+        return new PagedResultDto<UserDto>
+        {
+            Items = items,
+            Page = page,
+            PageSize = pageSize,
+            TotalItems = totalItems,
+            TotalPages = totalPages
+        };
     }
 
     public async Task<UserDto?> GetUserByIdAsync(int id)
@@ -55,3 +71,6 @@ public class UserService : IUserService
         CreatedAt = user.CreatedAt
     };
 }
+
+
+

@@ -105,6 +105,15 @@ public class SubscriptionService : ISubscriptionService
         return subscriptions.Select(MapSubscriptionToDto);
     }
 
+    public async Task<IEnumerable<UserSubscriptionDto>> GetExpiringSoonAsync(int days)
+    {
+        var limitDate = DateTime.UtcNow.AddDays(days);
+        var subscriptions = await _subscriptionRepository.GetAllActiveAsync();
+
+        return subscriptions
+            .Where(s => s.EndDate <= limitDate)
+            .Select(MapSubscriptionToDto);
+    }
     public async Task<IEnumerable<UserSubscriptionDto>> GetUserSubscriptionsAsync(int userId)
     {
         var subscriptions = await _subscriptionRepository.GetByUserIdAsync(userId);
@@ -148,3 +157,4 @@ public class SubscriptionService : ISubscriptionService
         IsActive = sub.IsActive
     };
 }
+

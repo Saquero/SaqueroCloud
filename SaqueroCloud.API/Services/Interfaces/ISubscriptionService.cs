@@ -11,6 +11,8 @@ public interface ISubscriptionService
     Task<bool> DeletePlanAsync(int id);
     Task<UserSubscriptionDto?> AssignSubscriptionAsync(int userId, AssignSubscriptionDto dto);
     Task<IEnumerable<UserSubscriptionDto>> GetActiveSubscriptionsAsync();
+    Task<IEnumerable<UserSubscriptionDto>> GetExpiringSoonAsync(int days);
     Task<IEnumerable<UserSubscriptionDto>> GetUserSubscriptionsAsync(int userId);
     Task<bool> CancelSubscriptionAsync(int subscriptionId);
 }
+

@@ -91,7 +91,7 @@ namespace SaqueroCloud.API.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedAt", "Email", "IsActive", "Name", "PasswordHash", "Role" },
-                values: new object[] { 1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "admin@saquerocloud.com", true, "Admin", "$2a$11$kOUT67vXqUa8qYCtR8diYOHLijgj1Jq/WThxNrpQIyN2Wm9YdoQYW", "Admin" });
+                values: new object[] { 1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Saquero@pruebas.com", true, "Saquero Admin", "$2a$11$4aGGpN3WNuN3liw3j0UKNukLnu3X6ANRVZFctfiCYZDKd.qDG9IrK", "Admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_Email",
