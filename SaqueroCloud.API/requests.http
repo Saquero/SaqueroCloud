@@ -1,0 +1,44 @@
+@baseUrl = http://127.0.0.1:5000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJTYXF1ZXJvQHBydWViYXMuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlNhcXVlcm8gQWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc3NzM2NjI4MSwiaXNzIjoiU2FxdWVyb0Nsb3VkLkFQSSIsImF1ZCI6IlNhcXVlcm9DbG91ZC5DbGllbnQifQ.i6HHfWGxuMTwXvXnwGyuxCIaFYsEXhJToNAeZLrP7Rk
+
+### Login admin
+POST {{baseUrl}}/api/Auth/login
+Content-Type: application/json
+
+{
+  "email": "Saquero@pruebas.com",
+  "password": "Admin1234!"
+}
+
+### Get users paginated
+GET {{baseUrl}}/api/Users?page=1&pageSize=10
+Authorization: Bearer {{token}}
+
+### Get subscription plans
+GET {{baseUrl}}/api/subscription-plans
+
+### Assign Basic plan to user 1
+POST {{baseUrl}}/api/Subscriptions/assign/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "planId": 1,
+  "endDate": "2026-05-01"
+}
+
+### Get active subscriptions
+GET {{baseUrl}}/api/Subscriptions/active
+Authorization: Bearer {{token}}
+
+### Filter active subscriptions by plan
+GET {{baseUrl}}/api/Subscriptions/active?planId=1
+Authorization: Bearer {{token}}
+
+### Get subscriptions expiring soon
+GET {{baseUrl}}/api/Subscriptions/expiring-soon?days=30
+Authorization: Bearer {{token}}
+
+### Cancel subscription
+PATCH {{baseUrl}}/api/Subscriptions/1/cancel
+Authorization: Bearer {{token}}
