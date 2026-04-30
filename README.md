@@ -1,199 +1,156 @@
-﻿# SaqueroCloud – SaaS Admin Platform
+﻿<p align="center">
+  <img src="./saquerocloud-frontend/public/favicon.svg" width="80" />
+</p>
 
-SaqueroCloud is a full stack SaaS-style admin platform built with **ASP.NET Core (.NET 8)** and **React**.
+<h1 align="center">☁️ SaqueroCloud</h1>
 
-The project simulates a real subscription management system where an admin can manage users, subscription plans and active subscriptions from a modern dashboard connected to a secure REST API.
+<p align="center">
+  SaaS Admin Platform for managing users, subscription plans and billing lifecycle
+</p>
 
 ---
 
-## Preview
+<p align="center">
 
-### Dashboard
+![API](https://img.shields.io/badge/API-ASP.NET%20Core-blue?style=for-the-badge&logo=dotnet)
+![Frontend](https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge&logo=react)
+![Auth](https://img.shields.io/badge/Auth-JWT-green?style=for-the-badge)
+![Architecture](https://img.shields.io/badge/Architecture-Clean-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+
+</p>
+
+---
+
+## 🚀 What is SaqueroCloud?
+
+SaqueroCloud is a full stack SaaS-style admin platform built with **ASP.NET Core (.NET 8)** and **React**.
+
+It simulates a real-world subscription system where administrators can manage:
+
+- Users 👤  
+- Subscription plans 📦  
+- Active subscriptions 🔄  
+- Billing lifecycle 💳  
+
+---
+
+## 📸 Preview
+
+### 📊 Dashboard
 ![Dashboard](./assets/dashboard.png)
 
-### Users
+### 👤 Users
 ![Users](./assets/users.png)
 
-### Plans
+### 📦 Plans
 ![Plans](./assets/plans.png)
 
-### Subscriptions
+### 🔄 Subscriptions
 ![Subscriptions](./assets/subscriptions.png)
 
 ---
 
-## Features
+## 🧠 Key Features
 
-- JWT authentication
-- Role-based access control
-- User management
-- Subscription plan management
-- Assign subscriptions to users
-- Cancel active subscriptions
-- Filter subscriptions by plan
-- Track expiring subscriptions
-- Server-side pagination
-- Swagger API documentation
-- REST Client testing file
-- Modern React admin dashboard
+✔ JWT Authentication  
+✔ Role-based access control  
+✔ User management  
+✔ Subscription plan management  
+✔ Assign & cancel subscriptions  
+✔ Filter subscriptions by plan  
+✔ Expiring subscriptions tracking  
+✔ REST API + Swagger  
+✔ Full React admin dashboard  
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
+
+### 🔙 Backend API
+- C#  
+- ASP.NET Core (.NET 8)  
+- Entity Framework Core  
+- JWT Authentication  
+- Swagger  
+
+### 🖥️ Frontend
+- React  
+- Vite  
+- Axios  
+- CSS (SaaS UI)  
+
+### ⚙️ Tools
+- Git  
+- PowerShell  
+- Swagger  
+- REST Client  
+
+---
+
+## 📦 Setup
 
 ### Backend
-- C#
-- ASP.NET Core (.NET 8)
-- Entity Framework Core
-- SQLite
-- JWT Authentication
-- Swagger / OpenAPI
-- Middleware
-- Repository / Service pattern
 
-### Frontend
-- React
-- Vite
-- JavaScript
-- CSS
-- Axios
-- Lucide React
-
-### Tools
-- PowerShell
-- Git
-- VS Code
-- REST Client
-- Swagger
-
----
-
-## Project Structure
-
-```txt
-SaqueroCloud/
-├── SaqueroCloud.API/
-│   ├── Controllers/
-│   ├── Services/
-│   ├── Repositories/
-│   ├── Models/
-│   ├── Data/
-│   ├── Middleware/
-│   └── Program.cs
-│
-├── saquerocloud-frontend/
-│   ├── src/
-│   ├── public/
-│   └── package.json
-│
-├── assets/
-├── DECISIONS.md
-├── requests.http
-└── README.md
-Backend Setup
-
-From the backend folder:
-
+```bash
 cd SaqueroCloud.API
-dotnet restore
 dotnet run --urls="http://127.0.0.1:5000"
-
-API:
-
-http://127.0.0.1:5000
-
-Swagger:
-
-http://127.0.0.1:5000
-Frontend Setup
-
-From the frontend folder:
-
+Frontend
 cd saquerocloud-frontend
 npm install
 npm run dev
-
-Frontend:
-
-http://localhost:5173
-
-The port may change if Vite detects another app already running.
-
-Default Credentials
+🔐 Credentials
 Email: Saquero@pruebas.com
 Password: Admin1234!
-Main API Endpoints
+🔗 API Endpoints
 Auth
 POST /api/Auth/login
 POST /api/Auth/register
 Users
-GET /api/Users?page=1&pageSize=10
-GET /api/Users/{id}
-PUT /api/Users/{id}
-DELETE /api/Users/{id}
-Subscription Plans
+GET /api/Users
+Plans
 GET /api/subscription-plans
-POST /api/subscription-plans
-PUT /api/subscription-plans/{id}
-DELETE /api/subscription-plans/{id}
 Subscriptions
-GET /api/Subscriptions/active
-GET /api/Subscriptions/active?planId=1
-GET /api/Subscriptions/expiring-soon?days=30
 POST /api/Subscriptions/assign/{userId}
-PATCH /api/Subscriptions/{subscriptionId}/cancel
-Testing
+PATCH /api/Subscriptions/{id}/cancel
+💡 Why this project?
 
-The project includes:
+This is not just a CRUD.
 
-requests.http
+It demonstrates:
 
-This file allows testing the API directly from VS Code using the REST Client extension.
+✔ Real SaaS architecture
+✔ Business logic implementation
+✔ Full stack integration
+✔ Production-style API design
+✔ Admin dashboard workflows
 
-Technical Decisions
-
-Some technical decisions are documented in:
-
-DECISIONS.md
-
-Examples:
-
-SQLite for local development
-Layered architecture
-DTO usage
-JWT authentication
-Separation between frontend and backend
-Why this project matters
-
-This project is not just a CRUD demo.
-
-It includes real backend concepts commonly used in professional applications:
-
-Authentication and authorization
-Business rules
-Relational data modelling
-API documentation
-Error handling
-Frontend/backend integration
-Admin dashboard workflows
-Future Improvements
-Deploy frontend and backend online
-Add automated tests
-Add Serilog structured logging
+🚀 Future Improvements
+Deploy (Vercel + Render)
+Add tests
 Add refresh tokens
-Add user editing from the dashboard
-Add production database support with PostgreSQL
-Add Docker support
-License
+Improve UI animations
+Add analytics dashboard
+⭐ Support
 
-MIT © 2026 Manu Saquero
+If you like this project:
 
-Contact
+👉 Give it a star
+👉 Fork it
+👉 Use it as a base
+
+📬 Contact
 
 Created by Manu Saquero
 
-GitHub: https://github.com/Saquero
-
-LinkedIn: https://linkedin.com/in/manusaquero
-
-Email: Contactar
+<p align="center">
+  <a href="https://linkedin.com/in/manusaquero">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="mailto:manusaquero@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://github.com/Saquero">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
