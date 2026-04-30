@@ -47,14 +47,48 @@ public class AssignSubscriptionDto
     public DateTime EndDate { get; set; }
 }
 
+public class UpdateSubscriptionDto
+{
+    [Required]
+    public int PlanId { get; set; }
+
+    [Required]
+    public DateTime EndDate { get; set; }
+}
+
 public class UserSubscriptionDto
 {
     public int Id { get; set; }
+    public int UserId { get; set; }
     public string UserName { get; set; } = string.Empty;
     public string UserEmail { get; set; } = string.Empty;
+    public int PlanId { get; set; }
     public string PlanName { get; set; } = string.Empty;
     public decimal PlanPrice { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public bool IsActive { get; set; }
+}
+
+public class SubscriptionPlanUsageDto
+{
+    public int PlanId { get; set; }
+    public string PlanName { get; set; } = string.Empty;
+    public int MaxUsers { get; set; }
+    public int ActiveUsers { get; set; }
+    public int AvailableSlots { get; set; }
+    public bool IsFull { get; set; }
+}
+
+public class ServiceResult<T>
+{
+    public bool Success { get; set; }
+    public string Message { get; set; } = string.Empty;
+    public T? Data { get; set; }
+
+    public static ServiceResult<T> Ok(T data) =>
+        new() { Success = true, Data = data };
+
+    public static ServiceResult<T> Fail(string message) =>
+        new() { Success = false, Message = message };
 }

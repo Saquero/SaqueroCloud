@@ -24,6 +24,17 @@ public class UserSubscriptionRepository : IUserSubscriptionRepository
             .ToListAsync();
     }
 
+    public async Task<IEnumerable<UserSubscription>> GetExpiringAsync(int days)
+    {
+        var limit = DateTime.UtcNow.AddDays(days);
+        return await _context.UserSubscriptions
+            .Include(us => us.User)
+            .Include(us => us.Plan)
+            .Where(us => us.IsActive && us.EndDate > DateTime.UtcNow && us.EndDate <= limit)
+            .AsNoTracking()
+            .ToListAsync();
+    }
+
     public async Task<IEnumerable<UserSubscription>> GetByUserIdAsync(int userId)
     {
         return await _context.UserSubscriptions
@@ -41,11 +52,35 @@ public class UserSubscriptionRepository : IUserSubscriptionRepository
             .FirstOrDefaultAsync(us => us.Id == id);
     }
 
+    public async Task<int> CountActiveByPlanAsync(int planId)
+    {
+        return await _context.UserSubscriptions
+            .CountAsync(us => us.PlanId == planId && us.IsActive && us.EndDate > DateTime.UtcNow);
+    }
+
     public async Task<UserSubscription> CreateAsync(UserSubscription subscription)
     {
         _context.UserSubscriptions.Add(subscription);
         await _context.SaveChangesAsync();
         return subscription;
+    }
+
+    public async Task<UserSubscription?> UpdateAsync(int id, int planId, DateTime endDate)
+    {
+        var sub = await _context.UserSubscriptions
+            .Include(us => us.User)
+            .Include(us => us.Plan)
+            .FirstOrDefaultAsync(us => us.Id == id);
+
+        if (sub is null) return null;
+
+        sub.PlanId  = planId;
+        sub.EndDate = endDate;
+        await _context.SaveChangesAsync();
+
+        // Recargar navegacion actualizada
+        await _context.Entry(sub).Reference(s => s.Plan).LoadAsync();
+        return sub;
     }
 
     public async Task<bool> DeactivateAsync(int id)
