@@ -1,5 +1,5 @@
 ﻿<p align="center">
-  <img src="./saquerocloud-frontend/public/favicon.svg" width="80" />
+  <img src="./assets/logo.svg" width="80" />
 </p>
 
 <h1 align="center">☁️ SaqueroCloud</h1>
