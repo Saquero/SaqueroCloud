@@ -90,67 +90,98 @@ It simulates a real-world subscription system where administrators can manage:
 
 ## 📦 Setup
 
-### Backend
+### 🔧 1. Clonar el repositorio
 
-```bash
+git clone https://github.com/Saquero/SaqueroCloud.git
+cd SaqueroCloud
+
+---
+
+## 🖥️ 2. Backend (.NET API)
+
 cd SaqueroCloud.API
+dotnet restore
 dotnet run --urls="http://127.0.0.1:5000"
-Frontend
+
+API disponible en:
+http://127.0.0.1:5000
+
+Swagger:
+http://127.0.0.1:5000/swagger
+
+---
+
+## 🌐 3. Frontend (React)
+
 cd saquerocloud-frontend
 npm install
 npm run dev
-🔐 Credentials
-Email: Saquero@pruebas.com
+
+Frontend disponible en:
+http://localhost:5173
+
+---
+
+## 🔐 Credenciales de prueba
+
+Email: Saquero@pruebas.com  
 Password: Admin1234!
-🔗 API Endpoints
-Auth
-POST /api/Auth/login
-POST /api/Auth/register
-Users
-GET /api/Users
-Plans
-GET /api/subscription-plans
-Subscriptions
-POST /api/Subscriptions/assign/{userId}
-PATCH /api/Subscriptions/{id}/cancel
-💡 Why this project?
 
-This is not just a CRUD.
+---
 
-It demonstrates:
+## 🔗 API Endpoints
 
-✔ Real SaaS architecture
-✔ Business logic implementation
-✔ Full stack integration
-✔ Production-style API design
-✔ Admin dashboard workflows
+Auth  
+POST /api/Auth/login  
+POST /api/Auth/register  
 
-🚀 Future Improvements
-Deploy (Vercel + Render)
-Add tests
-Add refresh tokens
-Improve UI animations
-Add analytics dashboard
-⭐ Support
+Users  
+GET /api/Users  
 
-If you like this project:
+Plans  
+GET /api/subscription-plans  
 
-👉 Give it a star
-👉 Fork it
-👉 Use it as a base
+Subscriptions  
+POST /api/Subscriptions/assign/{userId}  
+PATCH /api/Subscriptions/{id}/cancel  
 
-📬 Contact
+---
 
-Created by Manu Saquero
+## 💡 Why this project?
 
-<p align="center">
-  <a href="https://linkedin.com/in/manusaquero">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
-  </a>
-  <a href="mailto:manusaquero@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-  </a>
-  <a href="https://github.com/Saquero">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-</p>
+Este proyecto **no es un CRUD más**.  
+Demuestra:
+
+- Arquitectura real de un SaaS  
+- Implementación de lógica de negocio  
+- Integración full‑stack  
+- API con diseño de estilo producción  
+- Flujos completos de panel de administración  
+
+---
+
+## 🚀 Future Improvements
+
+- Deploy con Vercel + Render  
+- Tests automatizados  
+- Refresh tokens  
+- Mejoras de UI/animaciones  
+- Dashboard de analíticas  
+
+---
+
+## ⭐ ¿Te ha gustado?
+
+Si este proyecto te aporta valor:
+
+- Dale una estrella ⭐  
+- Úsalo como base  
+- Conecta conmigo 🤝
+---
+
+## 📬 Contacto
+
+💼 Proyecto creado por 👉 [**Manu Saquero**](https://www.linkedin.com/in/manusaquero/)  
+
+🧠 Software Developer  
+🚀 Apasionado por crear productos reales
