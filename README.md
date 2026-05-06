@@ -1,187 +1,224 @@
 ﻿<p align="center">
-  <img src="./assets/logo.svg" width="80" />
+  <img src="assets/logo-saquero-cloud.svg" width="130"/>
 </p>
 
-<h1 align="center">☁️ SaqueroCloud</h1>
+<h1 align="center">SaqueroCloud</h1>
+<p align="center">
+  SaaS Admin Platform — .NET 8 · React · JWT Auth · Subscription Management
+</p>
 
 <p align="center">
-  SaaS Admin Platform for managing users, subscription plans and billing lifecycle
+  <img src="https://img.shields.io/badge/.NET-8-512BD4?style=flat-square&logo=dotnet"/>
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react"/>
+  <img src="https://img.shields.io/badge/Auth-JWT-green?style=flat-square"/>
+  <img src="https://img.shields.io/badge/Architecture-Clean-orange?style=flat-square"/>
+  <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square"/>
 </p>
 
 ---
 
-<p align="center">
+## What is this?
 
-![API](https://img.shields.io/badge/API-ASP.NET%20Core-blue?style=for-the-badge&logo=dotnet)
-![Frontend](https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge&logo=react)
-![Auth](https://img.shields.io/badge/Auth-JWT-green?style=for-the-badge)
-![Architecture](https://img.shields.io/badge/Architecture-Clean-orange?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
-
-</p>
+SaqueroCloud is a full-stack SaaS admin platform that simulates a real-world subscription
+management system. Administrators can manage users, subscription plans and billing lifecycle
+through a clean React dashboard backed by a production-style ASP.NET Core API.
 
 ---
 
-## 🚀 What is SaqueroCloud?
+## Preview
 
-SaqueroCloud is a full stack SaaS-style admin platform built with **ASP.NET Core (.NET 8)** and **React**.
+### 📊 Dashboard — Real-time stats and plan occupancy
 
-It simulates a real-world subscription system where administrators can manage:
+![Dashboard](assets/dashboard.png)
 
-- Users 👤  
-- Subscription plans 📦  
-- Active subscriptions 🔄  
-- Billing lifecycle 💳  
+### 👤 Users — User management with roles and plan info
 
----
+![Users](assets/users.png)
 
-## 📸 Preview
+### 📦 Plans — Subscription plan management
 
-### 📊 Dashboard
-![Dashboard](./assets/dashboard.png)
+![Plans](assets/plans.png)
 
-### 👤 Users
-![Users](./assets/users.png)
+### 🔄 Subscriptions — Assign, edit and cancel subscriptions
 
-### 📦 Plans
-![Plans](./assets/plans.png)
-
-### 🔄 Subscriptions
-![Subscriptions](./assets/subscriptions.png)
+![Subscriptions](assets/subscriptions.png)
 
 ---
 
-## 🧠 Key Features
+## Key Features
 
-✔ JWT Authentication  
-✔ Role-based access control  
-✔ User management  
-✔ Subscription plan management  
-✔ Assign & cancel subscriptions  
-✔ Filter subscriptions by plan  
-✔ Expiring subscriptions tracking  
-✔ REST API + Swagger  
-✔ Full React admin dashboard  
-
----
-
-## 🛠️ Tech Stack
-
-### 🔙 Backend API
-- C#  
-- ASP.NET Core (.NET 8)  
-- Entity Framework Core  
-- JWT Authentication  
-- Swagger  
-
-### 🖥️ Frontend
-- React  
-- Vite  
-- Axios  
-- CSS (SaaS UI)  
-
-### ⚙️ Tools
-- Git  
-- PowerShell  
-- Swagger  
-- REST Client  
+- JWT Authentication with role-based access control (Admin / User)
+- User management — create, list, assign roles
+- Subscription plan management — create, edit, delete plans with capacity limits
+- Subscription lifecycle — assign, cancel, track expiry
+- Dashboard with real-time stats and plan occupancy charts
+- Expiring subscriptions tracking (configurable days ahead)
+- Full React admin dashboard with dark UI
+- REST API with Swagger documentation
 
 ---
 
-## 📦 Setup
+## Tech Stack
 
-### 🔧 1. Clonar el repositorio
+### Backend
 
+| Technology        | Role               |
+| ----------------- | ------------------ |
+| C# / .NET 8       | Language & runtime |
+| ASP.NET Core      | Web API framework  |
+| Entity Framework  | ORM & migrations   |
+| SQLite            | Database (dev)     |
+| JWT Bearer        | Authentication     |
+| Swagger / OpenAPI | API documentation  |
+
+### Frontend
+
+| Technology | Role                   |
+| ---------- | ---------------------- |
+| React 18   | UI framework           |
+| Vite       | Build tool             |
+| Axios      | HTTP client            |
+| CSS        | Styling (dark SaaS UI) |
+
+---
+
+## Architecture
+
+Clean layered architecture with clear separation of concerns.
+
+```
+React Frontend (port 5173)
+        │
+        │ REST / JSON
+        ▼
+ASP.NET Core API (port 5000)
+  ├── Controllers   (HTTP layer)
+  ├── Services      (business logic)
+  ├── Repositories  (data access)
+  └── Models        (domain entities)
+        │
+        ▼
+     SQLite (EF Core)
+```
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed design decisions.
+
+---
+
+## Getting Started
+
+### Requirements
+
+- .NET 8 SDK
+- Node.js 18+
+- Git
+
+### 1. Clone the repo
+
+```bash
 git clone https://github.com/Saquero/SaqueroCloud.git
 cd SaqueroCloud
+```
 
----
+### 2. Run the backend
 
-## 🖥️ 2. Backend (.NET API)
-
+```powershell
 cd SaqueroCloud.API
 dotnet restore
-dotnet run --urls="http://127.0.0.1:5000"
+dotnet run --urls="http://localhost:5000"
+```
 
-API disponible en:
-http://127.0.0.1:5000
+API available at: `http://localhost:5000`
+Swagger UI: `http://localhost:5000/swagger`
 
-Swagger:
-http://127.0.0.1:5000/swagger
+### 3. Run the frontend
 
----
-
-## 🌐 3. Frontend (React)
-
+```powershell
 cd saquerocloud-frontend
 npm install
 npm run dev
+```
 
-Frontend disponible en:
-http://localhost:5173
+Frontend available at: `http://localhost:5173`
 
----
+### 4. Login
 
-## 🔐 Credenciales de prueba
-
-Email: Saquero@pruebas.com  
+```
+Email:    Saquero@pruebas.com
 Password: Admin1234!
+```
 
 ---
 
-## 🔗 API Endpoints
+## API Endpoints
 
-Auth  
-POST /api/Auth/login  
-POST /api/Auth/register  
-
-Users  
-GET /api/Users  
-
-Plans  
-GET /api/subscription-plans  
-
-Subscriptions  
-POST /api/Subscriptions/assign/{userId}  
-PATCH /api/Subscriptions/{id}/cancel  
-
----
-
-## 💡 Why this project?
-
-Este proyecto **no es un CRUD más**.  
-Demuestra:
-
-- Arquitectura real de un SaaS  
-- Implementación de lógica de negocio  
-- Integración full‑stack  
-- API con diseño de estilo producción  
-- Flujos completos de panel de administración  
+| Method | Path                               | Auth   | Description            |
+| ------ | ---------------------------------- | ------ | ---------------------- |
+| POST   | /api/Auth/login                    | Public | Login, returns JWT     |
+| POST   | /api/Auth/register                 | Public | Register user          |
+| GET    | /api/Users                         | Admin  | List users             |
+| GET    | /api/subscription-plans            | Auth   | List plans             |
+| POST   | /api/subscription-plans            | Admin  | Create plan            |
+| PUT    | /api/subscription-plans/{id}       | Admin  | Update plan            |
+| DELETE | /api/subscription-plans/{id}       | Admin  | Delete plan            |
+| GET    | /api/Subscriptions                 | Admin  | List subscriptions     |
+| POST   | /api/Subscriptions/assign/{userId} | Admin  | Assign plan to user    |
+| PATCH  | /api/Subscriptions/{id}/cancel     | Admin  | Cancel subscription    |
+| GET    | /api/Dashboard/summary             | Admin  | Dashboard stats        |
+| GET    | /api/Dashboard/expiring            | Admin  | Expiring subscriptions |
 
 ---
 
-## 🚀 Future Improvements
+## Project Structure
 
-- Deploy con Vercel + Render  
-- Tests automatizados  
-- Refresh tokens  
-- Mejoras de UI/animaciones  
-- Dashboard de analíticas  
+```
+SaqueroCloud/
+├── SaqueroCloud.API/
+│   ├── Controllers/       Auth, Users, Plans, Subscriptions, Dashboard
+│   ├── Data/              AppDbContext (Entity Framework Core)
+│   ├── Middleware/        JWT middleware
+│   ├── Migrations/        EF Core database migrations
+│   ├── Models/            User, SubscriptionPlan, Subscription
+│   ├── Repositories/      Data access layer
+│   ├── Services/          Business logic layer
+│   └── Program.cs         App bootstrap and DI configuration
+└── saquerocloud-frontend/
+    ├── src/
+    │   ├── components/    Reusable UI components
+    │   ├── pages/         Dashboard, Users, Plans, Subscriptions
+    │   └── services/      Axios API client
+    └── public/            Static assets
+```
 
 ---
 
-## ⭐ ¿Te ha gustado?
+## Roadmap
 
-Si este proyecto te aporta valor:
+- [ ] PostgreSQL + Docker Compose
+- [ ] Unit tests for Services layer
+- [ ] Refresh token implementation
+- [ ] Email notifications for expiring subscriptions
+- [ ] Deploy (Render + Vercel)
 
-- Dale una estrella ⭐  
-- Úsalo como base  
-- Conecta conmigo 🤝
 ---
 
-## 📬 Contacto
+## Part of the Saquero Ecosystem
 
-💼 Proyecto creado por 👉 [**Manu Saquero**](https://www.linkedin.com/in/manusaquero/)  
+| Project                                                         | Stack            | Description                  |
+| --------------------------------------------------------------- | ---------------- | ---------------------------- |
+| SaqueroCloud                                                    | .NET 8 + React   | This project                 |
+| [SaqueroOrderCore](https://github.com/Saquero/SaqueroOrderCore) | Java 21 + Spring | Order lifecycle backend, DDD |
 
-🧠 Software Developer  
-🚀 Apasionado por crear productos reales
+---
+
+<p align="center">
+  <a href="https://linkedin.com/in/manusaquero">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
+  </a>
+  <a href="mailto:manusaquero@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
+  </a>
+  <a href="https://github.com/Saquero">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/>
+  </a>
+</p>
