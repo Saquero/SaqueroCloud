@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="assets/logo-saquero-cloud.svg" alt="SaqueroCloud" width="160"/>
+  <img src="assets/favicon.svg" alt="SaqueroCloud" width="120"/>
 </p>
 
 <h1 align="center">SaqueroCloud</h1>
-<p align="center">Full-stack SaaS Admin Platform — .NET 8 · React · JWT Auth · Clean Architecture</p>
+<p align="center">Full-stack SaaS Admin Platform â€” .NET 8 Â· React Â· JWT Auth Â· Clean Architecture</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/.NET-8.0-512BD4?style=flat-square&logo=dotnet" />
@@ -19,7 +19,7 @@
 
 SaqueroCloud is a full-stack SaaS-style admin platform built with **ASP.NET Core (.NET 8)** and **React**.
 
-It simulates a real-world subscription management system where administrators manage users, subscription plans, active subscriptions and billing lifecycle — with JWT authentication and a complete React dashboard.
+It simulates a real-world subscription management system where administrators manage users, subscription plans, active subscriptions and billing lifecycle â€” with JWT authentication and a complete React dashboard.
 
 ---
 
@@ -66,8 +66,8 @@ It simulates a real-world subscription management system where administrators ma
 | C#                    | 12      | Language          |
 | ASP.NET Core          | 8.0     | Web API           |
 | Entity Framework Core | 8.0     | ORM               |
-| JWT Bearer            | —       | Authentication    |
-| Swagger               | —       | API documentation |
+| JWT Bearer            | â€”       | Authentication    |
+| Swagger               | â€”       | API documentation |
 
 ### Frontend
 
@@ -85,20 +85,20 @@ Clean Architecture with layered separation of concerns.
 
 ```text
 SaqueroCloud/
-├── SaqueroCloud.API
-│   ├── Controllers
-│   ├── DTOs
-│   ├── Models
-│   ├── Services
-│   ├── Data
-│   └── Program.cs
-│
-└── saquerocloud-frontend
-    ├── src/
-    │   ├── components
-    │   ├── pages
-    │   └── services
-    └── index.html
+â”œâ”€â”€ SaqueroCloud.API
+â”‚   â”œâ”€â”€ Controllers
+â”‚   â”œâ”€â”€ DTOs
+â”‚   â”œâ”€â”€ Models
+â”‚   â”œâ”€â”€ Services
+â”‚   â”œâ”€â”€ Data
+â”‚   â””â”€â”€ Program.cs
+â”‚
+â””â”€â”€ saquerocloud-frontend
+    â”œâ”€â”€ src/
+    â”‚   â”œâ”€â”€ components
+    â”‚   â”œâ”€â”€ pages
+    â”‚   â””â”€â”€ services
+    â””â”€â”€ index.html
 ```
 
 ---
@@ -172,7 +172,7 @@ Password: Admin1234!
 | SaqueroCloud                                                    | .NET 8 + React          | SaaS admin platform, JWT auth, subscription management |
 | [SaqueroOrderCore](https://github.com/Saquero/SaqueroOrderCore) | Java 21 + Spring Boot 3 | Order lifecycle backend, DDD, Hexagonal                |
 | [SaqueroJobs](https://github.com/Saquero/SaqueroJobs)           | .NET 8                  | Background job processing engine                       |
-| SaqueroGateway                                                  | .NET 8                  | API Gateway — in progress                              |
+| [SaqueroGateway](https://github.com/Saquero/SaqueroGateway)     | .NET 8                  | API Gateway -- single entry point                      |
 
 ---
 
@@ -180,10 +180,10 @@ Password: Admin1234!
 
 | Service          | Port | Health              |
 | ---------------- | ---- | ------------------- |
-| SaqueroCloud     | 5000 | /health ✅          |
-| SaqueroOrderCore | 8080 | /actuator/health ✅ |
-| SaqueroJobs      | 5200 | /health ✅          |
-| SaqueroGateway   | 5100 | in progress 🔜      |
+| SaqueroCloud     | 5000 | /health âœ…          |
+| SaqueroOrderCore | 8080 | /actuator/health âœ… |
+| SaqueroJobs      | 5200 | /health âœ…          |
+| SaqueroGateway   | 5100 | in progress ðŸ”œ      |
 
 ---
 
